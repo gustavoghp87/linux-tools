@@ -1,3 +1,15 @@
-ifconfig eth0 down && ifconfig wlan0 down &&
-macchanger -r eth0 && macchanger -r wlan0 &&
-ifconfig eth0 up && ifconfig wlan0 up
+#!bin/bash
+
+home=$(pwd)
+
+for INTERFACE in "$@"
+do
+echo
+echo "\e[0;33m
+    *** BARRANING $INTERFACE *** "
+echo
+sleep 2
+ifconfig $INTERFACE down && macchanger -r $INTERFACE && ifconfig $INTERFACE up
+done
+
+echo "\n\e[0;31m *** OK! ***"
