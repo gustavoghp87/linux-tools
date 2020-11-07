@@ -17,7 +17,7 @@ airmon-ng start $INTERFACE &&
 # iw dev $INTERFACE set type monitor &&
 ip link set $INTERFACE up &&
 # iw $INTERFACE set txpower 3000 &&
-iw $INTERFACE info
+iw ${INTERFACE + "mon"} info
 done
 
 echo "\n\e[0;31m *** OK! ***"
