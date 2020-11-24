@@ -6,19 +6,16 @@ for INTERFACE in "$@"
 do
 echo
 echo "\e[0;33m
-    *** $INTERFACE TO MONITOR MODE *** "
+    *** $INTERFACE TO MANAGED MODE *** "
 echo
 sleep 2
 
 airmon-ng &&
 airmon-ng check kill &&
 ip link set $INTERFACE down &&
-airmon-ng start $INTERFACE &&
-# iw dev $INTERFACE set type monitor &&
+airmon-ng stop $INTERFACE &&
 ip link set $INTERFACE up &&
-# iw $INTERFACE set txpower 3000 &&
-NEWINTERFACE = $INTERFACE + "mon"
-iw $NEWINTERFACE info
+NetworkManager
 done
 
 echo "\n\e[0;31m *** OK! ***"
