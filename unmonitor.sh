@@ -5,7 +5,7 @@ home=$(pwd)
 for INTERFACE in "$@"
 do
 echo
-echo "\e[0;33m
+printf "\e[0;33m
     *** $INTERFACE TO MANAGED MODE *** "
 echo
 sleep 2
@@ -18,4 +18,4 @@ ip link set $INTERFACE up &&
 NetworkManager
 done
 
-echo "\n\e[0;31m *** OK! ***"
+printf "\n\e[0;31m *** OK! ***"

@@ -5,7 +5,7 @@ home=$(pwd)
 for INTERFACE in "$@"
 do
 echo
-echo "\e[0;33m
+printf "\e[0;33m
     *** $INTERFACE TO MONITOR MODE *** "
 echo
 sleep 2
@@ -21,4 +21,4 @@ NEWINTERFACE = $INTERFACE + "mon"
 iw $NEWINTERFACE info
 done
 
-echo "\n\e[0;31m *** OK! ***"
+printf "\n\e[0;31m *** OK! ***"

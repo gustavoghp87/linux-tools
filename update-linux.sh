@@ -1,10 +1,10 @@
 #!bin/bash
-
 home=$(pwd)
+source bash-colors
 
 f_banner() {
 	echo
-	echo "\e[0;33m
+	printf "$green
 			*** UPDATING AND UPGRADING, SIR *** "
 	echo
 	sleep 2
@@ -12,32 +12,37 @@ f_banner() {
 }
 
 f_update() {
+	printf "$red UPDATING......................................."
 	apt-get update;
-	echo "\e[0;35m
+	printf "\e[0;35m
 			*** UPDATED APT-GET! *** "
 }
 
 f_upgrade() {
+	printf "$blue UPDATING......................................."
 	apt-get upgrade --assume-yes;
-	echo "\e[0;32m
+	printf "
 			*** UPGRADED APT-GET! *** "
 }
 
 f_update_apt() {
+	printf "$orange UPDATING......................................."
 	apt update;
-	echo "\e[0;33m
+	printf "
 			*** UPDATED APT! *** "
 }
 
 f_upgrade_apt() {
+	printf "$purple UPDATING......................................."
 	apt upgrade --assume-yes;
-	echo "\e[0;35m
+	printf "
 			*** UPGRADED APT! *** "
 }
 
 f_autoremove() {
+	printf "$yellow UPDATING......................................."
 	apt autoremove --assume-yes;
-	echo "\e[0;29m
+	printf "\e[0;29m
 			*** AUTOREMOVED PACKAGES! *** "
 }
 
