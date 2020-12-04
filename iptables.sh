@@ -14,6 +14,7 @@ printf "\e[0;33m"
 iptables -L INPUT
 
 printf "\n\e[0;31m *** OK! ***"
+echo
 
 # wc opens files
 # sudo iptables -L INPUT      lists open ports

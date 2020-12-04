@@ -13,3 +13,4 @@ ifconfig $INTERFACE down && macchanger -r $INTERFACE && ifconfig $INTERFACE up
 done
 
 printf "\n\e[0;31m *** OK! ***"
+echo

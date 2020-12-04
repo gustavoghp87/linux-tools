@@ -22,3 +22,4 @@ iw $NEWINTERFACE info
 done
 
 printf "\n\e[0;31m *** OK! ***"
+echo
