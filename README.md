@@ -2,7 +2,7 @@
 
 update-linux.sh:
 
-automatization in BASH: apt-get update + apt-get upgrade + apt update + apt upgrade + apt autoremove
+automation in BASH: apt-get update + apt-get upgrade + apt update + apt upgrade + apt autoremove
 
 ------------------------------------------------------------------------------------------------------------------
 
