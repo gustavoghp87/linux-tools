@@ -3,22 +3,27 @@
 home=$(pwd)
 
 for INTERFACE in "$@"
-do
-echo
-printf "\e[0;33m
-    *** $INTERFACE TO MONITOR MODE *** "
-echo
-sleep 2
+	do
+	echo
+	printf "\e[0;33m
+	    *** $INTERFACE TO MONITOR MODE *** "
+	echo
+	sleep 2
 
-airmon-ng &&
-airmon-ng check kill &&
-ip link set $INTERFACE down &&
-airmon-ng start $INTERFACE &&
-# iw dev $INTERFACE set type monitor &&
-ip link set $INTERFACE up &&
-# iw $INTERFACE set txpower 3000 &&
-NEWINTERFACE = $INTERFACE + "mon"
-iw $NEWINTERFACE info
+	airmon-ng &&
+	echo "2"
+	airmon-ng check kill &&
+	echo "3"
+	ip link set $INTERFACE down &&
+	echo "4"
+	airmon-ng start $INTERFACE &&
+	# iw dev $INTERFACE set type monitor &&
+	echo "5"
+	ip link set $INTERFACE up &&
+	# iw $INTERFACE set txpower 3000 &&
+	NEWINTERFACE = $INTERFACE + "mon"
+	echo $NEWINTERFACE
+	iw $NEWINTERFACE info
 done
 
 printf "\n\e[0;31m *** OK! ***"
