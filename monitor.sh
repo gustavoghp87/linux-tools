@@ -19,10 +19,10 @@ for INTERFACE in "$@"
 	airmon-ng start $INTERFACE &&
 	# iw dev $INTERFACE set type monitor &&
 	echo "5"
-	ip link set $INTERFACE up &&
-	# iw $INTERFACE set txpower 3000 &&
 	NEWINTERFACE = $INTERFACE + "mon"
 	echo $NEWINTERFACE
+	ip link set $INTERFACE up &&
+	# iw $INTERFACE set txpower 3000 &&
 	iw $NEWINTERFACE info
 done
 
