@@ -14,10 +14,12 @@ do
 	airmon-ng check kill &&
 	ip link set $INTERFACE down &&
 	echo "finished ip link set ... down" &&
+	
 	airmon-ng stop $INTERFACE &&
 	echo "finished airmon-ng stop" &&
-	ip link set $INTERFACE up &&
-	echo "ip link set ... up" &&
+	
+	# ip link set $INTERFACE up &&
+	echo "(no...) ip link set ... up" &&
 	NetworkManager &&
 	echo "finished NetworkManager"
 done
