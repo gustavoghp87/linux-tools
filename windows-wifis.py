@@ -1,19 +1,26 @@
 import subprocess
 import re
+import sys
+
+if len(sys.argv)>1 and sys.argv[1]=='--help':
+    print("\n    Run 'python windows-wifis.py' to show wifi connections in storage for spanish Windows 10")
+    print("\n    Run 'python windows-wifis.py en' to show wifi connections in storage for english Windows 10")
+    exit()
 
 command_output = subprocess.run(["netsh", "wlan", "show", "profiles"], capture_output = True).stdout.decode()
 # profile_names = (re.findall("All User Profile     : (.*)\r", command_output))
 
-profile_names1 = command_output.split('Perfil de todos los usuarios     : ')
-
-profile_names1.pop(0)
-
 profile_names = []
 
-for wifi in profile_names1:
-    wifi = wifi.split('\r')[0].strip()
-    # print (wifi)
-    profile_names.append(wifi)
+if (len(sys.argv)>1 and sys.argv[1]=='en'):
+    profile_names = (re.findall("All User Profile     : (.*)\r", command_output))
+else:
+    profile_names1 = command_output.split('Perfil de todos los usuarios     : ')
+    profile_names1.pop(0)
+    for wifi in profile_names1:
+        wifi = wifi.split('\r')[0].strip()
+        # print (wifi)
+        profile_names.append(wifi)
 
 print("\nConexiones:", profile_names, '\n\n')
 wifi_list = list()
