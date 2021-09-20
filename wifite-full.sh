@@ -1,8 +1,10 @@
 #!bin/bash
 
+cd ~/home/
+
 echo "--------> Run from /home and sudo"
 # git clone https://github.com/devr82/wifite2;
-# git clone https://github.com/JPaulMora/Pyrit;
+git clone https://github.com/JPaulMora/Pyrit;
 
 apt update;
 echo
@@ -38,5 +40,5 @@ echo "\n-------- ready --------\n";
 python2 Pyrit/setup.py install;
 echo "\n-------- ready --------\n";
 
-python wifite2/Wifite.py
-echo "\n-------- ready --------\n";
+# python wifite2/Wifite.py
+# echo "\n-------- ready --------\n";
